@@ -1,0 +1,108 @@
+@import 'bourbon';
+@import 'neat';
+$fa-font-path: '../../bower_components/font-awesome/fonts';
+@import '../../bower_components/font-awesome/scss/font-awesome';
+
+html,body{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  font-family: $helvetica;
+  font-size: 10px;
+  color: #000000;
+}
+
+.trailer-player-loader{
+  font-size: 2em;
+  color: #666666;
+  opacity: 0.6;
+  text-shadow: 0 0 0.1em #333333;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  margin-top: -1.5em;
+  margin-left: -1.5em;
+  vertical-align: middle;
+}
+.trailer-player{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+
+  .vjs-default-skin{
+    &:hover .vjs-big-play-button::before{
+      text-shadow: 0em 0em .5em transparentize(#555555,0.4);
+    }
+    .vjs-big-play-button{
+      left: 50%;
+      top: 50%;
+      margin-top: -1.5em;
+      margin-left: -1.5em;
+      height: 3em;
+      width: 3em;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+      color: #ffffff;
+      opacity: 0.6;
+      &::before{
+        content: $fa-var-play-circle;
+        font-family: 'FontAwesome';
+        font-size: 3em;
+        line-height: 1em;
+        transition: all .5s;
+      }
+    }
+  }
+  .click-through{
+    position: absolute;
+    display: none;
+    top:0;
+    left:0;
+  }
+  .video-js{
+    float: left;
+    overflow: hidden;
+
+  }
+  .playlist{
+    float: left;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: auto;
+  }
+  .playlist-item{
+    cursor: pointer;
+    &:hover,&.active{
+      background: transparentize(#cccccc, 0.6);
+    }
+  }
+  .playlist-item-img{
+    display: inline-block;
+    width: 30%;
+    vertical-align: middle;
+    img{
+      max-width: 100%;
+      max-height: 140px;
+    }
+  }
+  .playlist-item-detail{
+    display: inline-block;
+    width: 70%;
+    padding: 2px;
+    vertical-align: middle;
+    .heading{
+      font-weight: bold;
+    }
+    .description{
+      display: block;
+      padding: 1px;
+      height: 50px;
+      overflow: hidden;
+    }
+  }
+}
